@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese_Chess</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vertical {
+            writing-mode: vertical-lr;
+        }
+
+        #board {
+            width: 1000px;
+            height: 1200px;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        table {
+            width: 800px;
+            height: 900px;
+            margin: auto;
+            border: 1px solid #000;
+            border-collapse: collapse;
+            padding: 20px;
+        }
+
+        tr {
+            width: 800px;
+            height: 101px;
+        }
+
+        td {
+            width: 100.1px;
+            height: 101px;
+            border: 1px solid #000;
+
+        }
+
+        p {
+            font-size: 4rem;
+            font-family: '標楷體';
+            font-weight: 500;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-family: '標楷體';
+            font-weight: 500;
+            position: relative;
+
+
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .title::before {
+            content: '楚河';
+            position: absolute;
+            left: 125px;
+
+        }
+
+        .title::after {
+            content: '漢界';position: absolute;left: 525px;
+        }
+
+        .text {
+            font-size: 2.5rem;
+            font-family: '標楷體';
+            font-weight: 500;
+        }
+        .tr{
+            position: relative;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            }
+#a1::before{content: '車';position: absolute;top:-40px;left: -45px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#a2::before{content: '馬';position: absolute;top:-40px;left:  55px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#a3::before{content: '象';position: absolute;top:-40px;left: 155px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#a4::before{content: '士';position: absolute;top:-40px;left: 255px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#a5::before{content: '將';position: absolute;top:-40px;left: 355px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#a6::before{content: '士';position: absolute;top:-40px;left: 455px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#a7::before{content: '象';position: absolute;top:-40px;left: 555px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#a8::before{content: '馬';position: absolute;top:-40px;left: 655px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#a9::before{content: '車';position: absolute;top:-40px;left: 755px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+
+#b1::before{content: '包';position: absolute;top:-40px;left:  55px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#b2::before{content: '包';position: absolute;top:-40px;left: 655px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+
+#c1::before{content: '卒';position: absolute;top:-40px;left: -45px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#c3::before{content: '卒';position: absolute;top:-40px;left: 155px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#c5::before{content: '卒';position: absolute;top:-40px;left: 355px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#c7::before{content: '卒';position: absolute;top:-40px;left: 555px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#c9::before{content: '卒';position: absolute;top:-40px;left: 755px;font-size: 4rem;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+
+#d1::before{content: '兵';position: absolute;top:-40px;left: -45px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#d3::before{content: '兵';position: absolute;top:-40px;left: 155px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#d5::before{content: '兵';position: absolute;top:-40px;left: 355px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#d7::before{content: '兵';position: absolute;top:-40px;left: 555px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#d9::before{content: '兵';position: absolute;top:-40px;left: 755px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+
+#e1::before{content: '砲';position: absolute;top:-40px;left:  55px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#e2::before{content: '砲';position: absolute;top:-40px;left: 655px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+
+#f1::before{content: '俥';position: absolute;top:60px;left: -45px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#f2::before{content: '馬';position: absolute;top:60px;left:  55px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#f3::before{content: '相';position: absolute;top:60px;left: 155px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#f4::before{content: '仕';position: absolute;top:60px;left: 255px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#f5::before{content: '帥';position: absolute;top:60px;left: 355px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#f6::before{content: '仕';position: absolute;top:60px;left: 455px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#f7::before{content: '相';position: absolute;top:60px;left: 555px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#f8::before{content: '馬';position: absolute;top:60px;left: 655px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+#f9::before{content: '俥';position: absolute;top:60px;left: 755px;font-size: 4rem;color: red;width: 80px;height:80px;border-radius:50%;border: 1px solid #000;background:#fff;font-family: '標楷體';}
+
+/* ********************************************************************************* */
+
+
+
+    </style>
+</head>
+
+<body>
+    <p class="vertical">棋盤裡，車無輪，馬無韁，叫聲將軍提防提防</p>
+    <div id="board">
+        <table>
+            <tr class="tr">
+                <td id="a1"></td>
+                <td id="a2"></td>
+                <td id="a3"></td>
+                <td id="a4" style="background:linear-gradient( 45deg,#fff 48.5%,#000 48.5%,#000 51.5%,#fff 51.5%)"></td>
+                <td id="a5" style="background:linear-gradient(135deg,#fff 48.5%,#000 48.5%,#000 51.5%,#fff 51.5%)"></td>
+                <td id="a6"></td>
+                <td id="a7"></td>
+                <td id="a8">
+                    <div id="a9"></div>
+                </td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="background:linear-gradient( 315deg,#fff 48.5%,#000 48.5%,#000 51.5%,#fff 51.5%)"></td>
+                <td style="background:linear-gradient( 225deg,#fff 48.5%,#000 48.5%,#000 51.5%,#fff 51.5%)"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="tr">
+                <td id="b1"></td>
+                <td id="b2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="tr">
+                <td id="c1"></td>
+                <td id="c2"></td>
+                <td id="c3"></td>
+                <td id="c4"></td>
+                <td id="c5"></td>
+                <td id="c6"></td>
+                <td id="c7"></td>
+                <td id="c8">
+                    <div id="c9"></div></td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <span class="title"></span>
+                </td>
+            </tr>
+            <tr class="tr">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="tr">
+                <td id="d1"></td>
+                <td id="d2"></td>
+                <td id="d3"></td>
+                <td id="d4"></td>
+                <td id="d5"></td>
+                <td id="d6"></td>
+                <td id="d7"></td>
+                <td id="d8">
+                    <div id="d9"></div></td>
+            </tr>
+            <tr class="tr">
+                <td id="e1"></td>
+                <td id="e2"></td>
+                <td></td>
+                <td style="background:linear-gradient(225deg,#fff 48.5%,#000 48.5%,#000 51.5%,#fff 51.5%)"></td>
+                <td style="background:linear-gradient(315deg,#fff 48.5%,#000 48.5%,#000 51.5%,#fff 51.5%)"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="tr">
+                <td id="f1"></td>
+                <td id="f2"></td>
+                <td id="f3"></td>
+                <td id="f4" style="background:linear-gradient( 135deg,#fff 48.5%,#000 48.5%,#000 51.5%,#fff 51.5%)"></td>
+                <td id="f5" style="background:linear-gradient( 45deg,#fff 48.5%,#000 48.5%,#000 51.5%,#fff 51.5%)"></td>
+                <td id="f6"></td>
+                <td id="f7"></td>
+                <td id="f8">
+                    <div id="f9"></div></td>
+            </tr>
+        </table>
+    </div>
+    <p class="vertical">畫圖裡，龍不吟，虎不嘯，小小書僮可笑可笑</p>
+</body>
+
+</html>
